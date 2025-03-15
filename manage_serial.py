@@ -15,7 +15,7 @@ def serial_bridge(input_port: str, output_port: str, baudrate: int = 115200):
                 if data_in == b"1":
                     ser_out.write(data_out)
                     print(f"Sent: {data_out}")
-                    time.sleep(1)
+                    time.sleep(1) # Send data one time and wait till the sensor "tick down"
             time.sleep(0.05)  # Prevents excessive CPU usage
     
     except serial.SerialException as e:
